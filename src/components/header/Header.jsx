@@ -4,6 +4,7 @@ import { Box } from '@material-ui/system'
 import ToggleColorMode from 'components/toggleColorMode/ToggleColorMode'
 import { ColorModeContext } from 'context/ColorModeContext'
 import { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { primaryNav } from 'constants/primaryNav'
 import { Link } from 'react-router-dom'
 import { UserContext } from 'context/UserContext'
@@ -42,11 +43,8 @@ export default function Header({ mode }) {
 							</Typography>
 							<ToggleColorMode mode={mode} colorMode={colorMode} />
 							<Typography variant='body1' align='center'>
-								{user.name}
+								{user.name ? ('Welcome '+ user.name) : ''}
 							</Typography>
-							<Button onClick={() => setUser({ ...user, name: 'Jane Doe' })}>
-								Set user to Jane Doe
-							</Button>
 							<nav>
 								<ul>
 									{primaryNav.map(nav => (
@@ -62,4 +60,8 @@ export default function Header({ mode }) {
 			</StyledAppBar>
 		</Box>
 	)
+}
+
+Header.propTypes = {
+	mode: PropTypes.string,
 }

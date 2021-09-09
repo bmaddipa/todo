@@ -8,7 +8,7 @@ import { routes } from 'routes'
 import { UserContext } from 'context/UserContext'
 
 function App() {
-	const [user, setUser] = useState({ name: 'John Doe' })
+	const [user, setUser] = useState({ name: '' })
 
 	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
 	const [mode, setMode] = useState('light')
